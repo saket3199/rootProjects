@@ -1,0 +1,10 @@
+package com.builder.pattern.test;
+
+public class BuilderpatternTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

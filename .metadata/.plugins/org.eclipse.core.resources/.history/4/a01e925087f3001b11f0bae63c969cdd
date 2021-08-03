@@ -1,0 +1,5 @@
+package com.factory.pattern;
+
+public class Rectangle im[plements Shape]{
+
+}

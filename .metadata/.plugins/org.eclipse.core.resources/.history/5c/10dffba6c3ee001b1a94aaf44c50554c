@@ -1,0 +1,6 @@
+package com.project.tictactoe;
+
+public interface IResultAnalyzer {
+	public Cells playerHasWon(Cells[][] board);
+
+}

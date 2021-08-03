@@ -1,0 +1,15 @@
+package com.observer.pattern;
+
+public class BinaryObserver extends Observer{
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+		
+	}
+	public BinaryObserver(Subject subject){
+	      this.subject = subject;
+	      this.subject.attach(this);
+
+}

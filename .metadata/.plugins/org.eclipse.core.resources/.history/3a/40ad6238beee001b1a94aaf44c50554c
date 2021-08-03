@@ -1,0 +1,8 @@
+package com.project.tictactoe;
+
+public interface IBoardOperations {
+	public void generateBoard(Mark Board[][]);
+	
+	public boolean boardIsFull(Mark[][] board);
+
+}

@@ -1,0 +1,6 @@
+package com.project.tictactoe;
+
+public interface BoardOperations {
+	public void generateBoard(Cell Board[][]);
+
+}

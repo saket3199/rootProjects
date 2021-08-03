@@ -1,0 +1,115 @@
+package com.project.tictactoe;
+
+import java.util.ArrayList;
+import com.techlab.tictactoe.ResultEnum;
+
+public class Game {
+	private GameIO GameIO;
+	private int size;
+	private Board Board;
+	private ResultAnalyzer ResultAnalyzer;
+	private Players players;
+	
+	public Game(int size) {
+		this.size=size;
+		new Board(size);
+		GameIO= new GameIO(size);
+		Board = new Board(size);
+		ResultAnalyzer = new ResultAnalyzer(size);
+		
+	}
+	public void startGame() {
+		
+		TakeInput();
+	}
+	public int getSize() {
+		return size;
+	}
+	public void TakeInput() {
+		Cell[][] board = new Cell[size][size];
+		Cell c = Cell.E;
+		int row = 0;
+		int col = 0;
+//		Board B = new Board(3);
+//		ResultAnalysis Result = new ResultAnalysis();
+
+		Board.generateBoard(board);
+
+//		Scanner in = new Scanner(System.in);
+//		System.out.println("Let's play Tic Tac Toe!");
+//		System.out.print("Player 1, what is your name? ");
+//		String p1 = in.nextLine();
+//		System.out.print("Player 2, what is your name? ");
+//		String p2 = in.nextLine();
+//		players=new Players(p1,p2);
+//		players.setPlayer1(true);
+	
+		boolean gameEnded = false;
+		while (!gameEnded) {
+
+			// Draw the board
+
+			GameIO.drawBoard(board);
+
+			// Print whose turn it is
+			if (players.isPlayer1()) {
+				System.out.println(players.getP1() + "'s Turn (" + Cell.X + "):");
+				
+			} else {
+				System.out.println(players.getP2() + "'s Turn (" + Cell.O + "):");
+			}
+
+			if (players.isPlayer1()) {
+				c = Cell.X;
+			} else {
+				c = Cell.O;
+			}
+
+			while (true) {
+				
+				ArrayList<Integer> position = GameIO.userPosition();
+				row = position.get(0);
+				col = position.get(1);
+				
+				if (row < 0 || col < 0 || row > size-1 || col > size-1) {
+					System.out.println("This position is off the bounds of the board! Try again.");
+
+				} else if (board[row][col] != Cell.E) {
+					System.out.println("Someone has already made a move at this position! Try again.");
+
+				} else {
+					break;
+				}
+
+			}
+
+			board[row][col] = c;
+
+			if (ResultAnalyzer.playerHasWon(board) == Cell.X) {
+				System.out.println(players.getP1() + " has " + ResultEnum.Won);
+				gameEnded = true;
+			} else if (ResultAnalyzer.playerHasWon(board) == Cell.O) {
+				System.out.println(players.getP2() + " has " + ResultEnum.Won);
+				gameEnded = true;
+			} else {
+
+				if (Board.boardIsFull(board)) {
+					System.out.println("It's a " + ResultEnum.Tie);
+					gameEnded = true;
+				} else {
+					boolean p11;
+					p11=players.isPlayer1();
+					p11 = !players.isPlayer1();
+				}
+
+			}
+
+		}
+
+		GameIO.drawBoard(board);
+	
+
+	}
+
+
+}

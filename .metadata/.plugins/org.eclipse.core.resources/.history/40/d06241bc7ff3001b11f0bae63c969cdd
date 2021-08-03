@@ -1,0 +1,11 @@
+package com.abstractfactory.pattern;
+
+public class ShapeFactory extends AbstractFactory{
+
+	@Override
+	Shape getShapeType(String type) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

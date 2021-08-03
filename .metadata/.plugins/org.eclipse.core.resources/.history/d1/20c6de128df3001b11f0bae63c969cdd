@@ -1,0 +1,11 @@
+package com.decorator.pattern.test;
+
+public class DecoratorPatternTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+	}
+
+}

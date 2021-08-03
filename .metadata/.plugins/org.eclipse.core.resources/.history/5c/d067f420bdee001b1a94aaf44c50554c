@@ -1,0 +1,18 @@
+package com.project.tictactoe;
+
+public class Cells {
+	private Mark mark;
+	public Cells() {
+	    this.mark = Mark.BLANK;
+	  }
+
+	public Mark getCell() {
+		return mark;
+	}
+
+	public void setCell(Mark mark) {
+		this.mark = mark;
+	}
+	
+
+}

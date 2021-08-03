@@ -1,0 +1,15 @@
+package com.techlab.Person.test;
+
+import com.techlab.Person.Gender;
+import com.techlab.Person.Person;
+
+public class PersonTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Person person = new Person("Apple", 21, Gender.MALE, 72, 196);
+		
+	}
+
+}

@@ -1,0 +1,12 @@
+1626712960364	Delete element
+1626878360041	Delete element
+1626878615509	Rename type 'Result'
+1626936885371	Encapsulate field 'size'
+1626939475555	Encapsulate field 'mark'
+1626939486602	Encapsulate field 'row'
+1626939495890	Encapsulate field 'col'
+1627029508620	Delete element
+1627029514015	Delete element
+1627029525319	Delete element
+1627030507883	Rename type 'Cell'
+1627112304888	Encapsulate field 'size'

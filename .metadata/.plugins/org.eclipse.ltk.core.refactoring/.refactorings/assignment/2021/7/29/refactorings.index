@@ -1,0 +1,12 @@
+1626250234451	Encapsulate field 'Dearness_Allowance'
+1626250473408	Encapsulate field 'HRA_Allowance'
+1626250482226	Encapsulate field 'conveyance'
+1626250494659	Encapsulate field 'medical_allowance'
+1626367486023	Rename type 'Accounttest2'
+1626372815954	Delete element
+1626372822124	Delete element
+1626450142531	Encapsulate field 'name'
+1626450148387	Encapsulate field 'age'
+1626450162642	Encapsulate field 'gender'
+1626450171422	Encapsulate field 'weight'
+1626450205187	Encapsulate field 'height'

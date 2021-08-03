@@ -1,0 +1,64 @@
+package com.project.tictactoe;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class GameIO implements IOperations{
+	private int size;
+	private Players players;
+	private Scanner input;
+
+	public GameIO(int size) {
+		this.size = size;
+		
+		new Board(size);
+		new ResultAnalyzer(size);
+
+	}
+
+	public void getUserName() {
+
+		input = new Scanner(System.in);
+		System.out.println("Let's play Tic Tac Toe!");
+		System.out.print("Player 1, what is your name? ");
+		String p1 = input.nextLine();
+		System.out.print("Player 2, what is your name? ");
+		String p2 = input.nextLine();
+		players=new Players(p1,p2);
+		players.setPlayer1(true);
+		input.close();
+
+	}
+	public ArrayList<Integer> userPosition() {
+		input = new Scanner(System.in);
+		System.out.print("Enter a row number (0, 1, or 2): ");
+		int row = input.nextInt();
+		System.out.print("Enter a column number (0, 1, or 2): ");
+		int col = input.nextInt();
+		input.close();
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		array.add(row);
+		array.add(col);
+		return array;
+		
+	}
+
+	
+
+	
+
+
+	@Override
+	public void drawBoard(Cell[][] board) {
+		// TODO Auto-generated method stub
+		System.out.println("Board:");
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				System.out.print(board[i][j]);
+			}
+			System.out.println();
+		}
+		
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.decorartor.pattern;
+
+public abstract class ShapeDecorartor {
+
+}

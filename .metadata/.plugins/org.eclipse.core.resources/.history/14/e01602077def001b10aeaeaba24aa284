@@ -1,0 +1,24 @@
+package com.project.tictactoe;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class BoardTest {
+
+	@Test
+	void testBoard() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGenerateBoard() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testBoardIsFull() {
+		fail("Not yet implemented");
+	}
+
+}

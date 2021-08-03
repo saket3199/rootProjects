@@ -1,0 +1,15 @@
+package com.proxy.pattern;
+
+public class ProxyImage implements Image{
+
+	@Override
+	public void Display() {
+		// TODO Auto-generated method stub
+		if(realImage == null){
+	         realImage = new RealImage(fileName);
+	      }
+	      realImage.display();
+	   }
+	}
+
+}

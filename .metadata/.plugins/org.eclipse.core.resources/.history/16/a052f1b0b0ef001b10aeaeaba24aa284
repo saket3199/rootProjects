@@ -1,0 +1,19 @@
+package com.project.tictactoe;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class ResultAnalyzerTest {
+
+	@Test
+	void testResultAnalyzer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testPlayerHasWon() {
+		fail("Not yet implemented");
+	}
+
+}

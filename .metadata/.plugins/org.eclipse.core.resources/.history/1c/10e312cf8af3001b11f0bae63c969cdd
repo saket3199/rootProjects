@@ -1,0 +1,10 @@
+package com.adapter.pattern.test;
+
+public class AdapterPatternTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

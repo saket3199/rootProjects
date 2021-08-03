@@ -1,0 +1,23 @@
+package com.project.tictactoe;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class GameTest {
+
+	@Test
+	void testGame() {
+//		fail("Not yet implemented");
+		//arrange
+		
+		//act
+		//assert
+	}
+
+	@Test
+	void testTakeInput() {
+		fail("Not yet implemented");
+	}
+
+}

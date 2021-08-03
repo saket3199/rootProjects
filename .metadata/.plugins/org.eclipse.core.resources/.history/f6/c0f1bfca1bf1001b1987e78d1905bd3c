@@ -1,0 +1,116 @@
+package com.project.tictactoe.game;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import com.project.tictactoe.analyzer.ResultAnalyzer;
+import com.project.tictactoe.board.Board;
+import com.project.tictactoe.cell.Cell;
+import com.project.tictactoe.mark.Mark;
+import com.project.tictactoe.player.Player;
+import com.techlab.tictactoe.ResultEnum;
+
+public class GameIO implements IGameioable {
+	private int size;
+	private Player player;
+	private Scanner input;
+	private Game game;
+	private ArrayList<Integer> array;
+	public GameIO() {
+		input = new Scanner(System.in);
+		game = new Game(boardSize());
+	}
+public int boardSize() {
+	System.out.println("Enter Board Size");
+	return this.size=input.nextInt();
+}
+	public void getUserName() {
+		
+		System.out.println("Let's play Tic Tac Toe!");
+		System.out.print("Player 1, what is your name? ");
+		String p1 = input.nextLine();
+		System.out.print("Player 2, what is your name? ");
+		String p2 = input.nextLine();
+		player = new Player(p1, p2);
+		player.setPlayer1(true);
+
+	}
+	public void Play() {
+		this.drawBoard(game.generateBoard());
+		this.getUserName();
+		boolean gameEnded = false;
+		while (!gameEnded) {
+			this.drawBoard(game.generateBoard());
+			if(game.TakeInput()==1||game.TakeInput()==2) {
+				this.whoseTurn(game.TakeInput());
+			}
+			while(true) {
+				game.putMark(array);
+			}
+		}
+		this.drawBoard(game.generateBoard());
+		
+	}
+	public void boardValidator(int i) {
+		switch(i) {
+		case 1:
+			System.out.println("This position is off the bounds of the board! Try again.");
+		case 2:
+			System.out.println("Someone has already made a move at this position! Try again.");
+		}
+	}
+
+	public ArrayList<Integer> userPosition() {
+
+		System.out.print("Enter a row number (0, 1, or 2): ");
+		int row = input.nextInt();
+		System.out.print("Enter a column number (0, 1, or 2): ");
+		int col = input.nextInt();
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		array.add(row);
+		array.add(col);
+		return array;
+
+	}
+
+	public void printResult(String name,int i) {
+		switch (i) {
+		case 1:
+			System.out.println(name + " has " + ResultEnum.Won);
+		case 0:
+			System.out.println("It's a " + ResultEnum.Tie);
+		default:
+			System.err.print("System Error");
+		}
+
+	}
+	public void whoseTurn(int i) {
+		switch(i) {
+		case 1:
+			System.out.println(player.getP1() + "'s Turn (" + Mark.X + "):");
+		case 2:
+			System.out.println(player.getP2() + "'s Turn (" + Mark.O + "):");
+		}
+	}
+
+	@Override
+	public void drawBoard(Cell[][] board) {
+		// TODO Auto-generated method stub
+		System.out.println("Board:");
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				System.out.print(board[i][j].getMark());
+			}
+			System.out.println();
+		}
+
+	}
+	@Override
+	public void whoseTurn(String p1, int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}
