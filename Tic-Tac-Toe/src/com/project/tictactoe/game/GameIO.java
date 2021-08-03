@@ -62,8 +62,6 @@ public class GameIO implements IGameioable {
 			if (i == 1 || i == 2 || i == 3) {
 				this.printResult(i);
 				break;
-			} else {
-				System.out.println("No result");
 			}
 		}
 		this.drawBoard(game.getBoard().getCells());
@@ -71,11 +69,13 @@ public class GameIO implements IGameioable {
 	}
 
 	public void boardValidator(int i) {
-		if (i == 1)
+		if (i == 1) {
 			System.out.println("This position is off the bounds of the board! Try again.");
-		else if (i == 2)
+			this.drawBoard(game.getBoard().getCells());
+		} else if (i == 2) {
 			System.out.println("Someone has already made a move at this position! Try again.");
-		else if (i == 0)
+			this.drawBoard(game.getBoard().getCells());
+		} else if (i == 0)
 			System.err.println("System Error");
 	}
 

@@ -40,13 +40,10 @@ public class Game {
 			c = Mark.O;
 
 		}
-		for (int i = 0; i < positions.size(); i++) {
-			System.out.println(positions.get(i));
-		}
+		
 		row = positions.get(0);
 		col = positions.get(1);
-		System.out.println("row" + row);
-		System.out.println("col" + col);
+		
 
 		if (row < 0 || col < 0 || row > board.getSize() - 1 || col > board.getSize() - 1) {
 
