@@ -24,8 +24,6 @@ public class Game {
 
 	}
 
-
-
 	public int getSize() {
 		return size;
 	}
@@ -40,18 +38,19 @@ public class Game {
 			c = Mark.X;
 			player.setPlayer1(false);
 			player.setPlayer2(true);
-		} else if(player.isPlayer2()) {
+		} else if (player.isPlayer2()) {
 			c = Mark.O;
 			player.setPlayer1(true);
 			player.setPlayer2(false);
 		}
-
-		this.getBoard().getCells()[row][col].setMark(c);
-		row = positions.get(0);
-		col = positions.get(1);
+		if (!(row < 0 || col < 0 || row > size - 1 || col > size - 1)) {
+			this.getBoard().getCells()[row][col].setMark(c);
+			row = positions.get(0);
+			col = positions.get(1);
+		}
 
 		if (row < 0 || col < 0 || row > size - 1 || col > size - 1) {
-			
+
 			return 1;
 
 		} else if (this.getBoard().getCells()[row][col] != this.getBoard().getCells()[row][col]) {
@@ -65,12 +64,12 @@ public class Game {
 	public int takeInput() {
 
 		if (player.isPlayer1()) {
-			
+
 			player.setPlayer2(true);
 			player.setPlayer1(false);
 			return 1;
 
-		} else if(player.isPlayer2()){
+		} else if (player.isPlayer2()) {
 			player.setPlayer1(true);
 			player.setPlayer2(false);
 			return 2;

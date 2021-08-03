@@ -71,7 +71,7 @@ public class GameIO implements IGameioable {
 			System.out.println("This position is off the bounds of the board! Try again.");
 		case 2:
 			System.out.println("Someone has already made a move at this position! Try again.");
-		default:
+		case 0:
 			System.err.println("System Error");
 		}
 	}
