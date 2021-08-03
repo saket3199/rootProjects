@@ -13,14 +13,13 @@ public class Game {
 	private ResultAnalyzer resultAnalyzer;
 	private Player player;
 	private int row, col;
+	private Mark c;
 
 	public Game(int size) {
 		this.size = size;
-		row = 0;
-		col = 0;
 		player = new Player();
 		board = new Board(size);
-		resultAnalyzer = new ResultAnalyzer(size);
+		resultAnalyzer = new ResultAnalyzer();
 
 	}
 
@@ -33,27 +32,27 @@ public class Game {
 	}
 
 	public int putMark(ArrayList<Integer> positions) {
-		Mark c = Mark.E;
-		if (player.isPlayer1()) {
+		c = Mark.E;
+		if (player.isPlayer1() && !player.isPlayer2()) {
 			c = Mark.X;
-			player.setPlayer1(false);
-			player.setPlayer2(true);
-		} else if (player.isPlayer2()) {
-			c = Mark.O;
-			player.setPlayer1(true);
-			player.setPlayer2(false);
-		}
-		if (!(row < 0 || col < 0 || row > size - 1 || col > size - 1)) {
-			this.getBoard().getCells()[row][col].setMark(c);
-			row = positions.get(0);
-			col = positions.get(1);
-		}
 
-		if (row < 0 || col < 0 || row > size - 1 || col > size - 1) {
+		} else if (player.isPlayer2() && !player.isPlayer1()) {
+			c = Mark.O;
+
+		}
+		for (int i = 0; i < positions.size(); i++) {
+			System.out.println(positions.get(i));
+		}
+		row = positions.get(0);
+		col = positions.get(1);
+		System.out.println("row" + row);
+		System.out.println("col" + col);
+
+		if (row < 0 || col < 0 || row > board.getSize() - 1 || col > board.getSize() - 1) {
 
 			return 1;
 
-		} else if (this.getBoard().getCells()[row][col] != this.getBoard().getCells()[row][col]) {
+		} else if (this.getBoard().getCells()[row][col].getMark() != Mark.E) {
 			return 2;
 
 		}
@@ -63,15 +62,12 @@ public class Game {
 
 	public int takeInput() {
 
-		if (player.isPlayer1()) {
+		if (player.isPlayer1() && !player.isPlayer2()) {
 
-			player.setPlayer2(true);
-			player.setPlayer1(false);
 			return 1;
 
-		} else if (player.isPlayer2()) {
-			player.setPlayer1(true);
-			player.setPlayer2(false);
+		} else if (player.isPlayer2() && !player.isPlayer1()) {
+
 			return 2;
 		}
 		return 0;
@@ -79,23 +75,30 @@ public class Game {
 	}
 
 	public int resultAnalysis() {
-
-		if (resultAnalyzer.playerHasWon(this.getBoard().getCells()) == Mark.X) {
+		Mark result = resultAnalyzer.playerHasWon(this.getBoard().getCells());
+		System.out.print(result);
+		if (result.equals(Mark.X)) {
 			return 1;
-		} else if (resultAnalyzer.playerHasWon(this.getBoard().getCells()) == Mark.O) {
+		} else if (result.equals(Mark.O)) {
 			return 2;
 		} else {
 
 			if (board.boardIsFull(this.getBoard().getCells())) {
 				return 3;
 			} else {
-				boolean p11 = player.isPlayer1();
-				p11 = !player.isPlayer1();
+				player.setPlayer1(!player.isPlayer1());
+				player.setPlayer2(!player.isPlayer2());
+
 			}
 
 		}
 
 		return 0;
+	}
+
+	public void setMark() {
+		// TODO Auto-generated method stub
+		this.getBoard().getCells()[row][col].setMark(c);
 
 	}
 

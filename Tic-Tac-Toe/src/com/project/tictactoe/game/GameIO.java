@@ -3,8 +3,6 @@ package com.project.tictactoe.game;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.project.tictactoe.analyzer.ResultAnalyzer;
-import com.project.tictactoe.board.Board;
 import com.project.tictactoe.cell.Cell;
 import com.project.tictactoe.mark.Mark;
 import com.project.tictactoe.player.Player;
@@ -15,14 +13,17 @@ public class GameIO implements IGameioable {
 	private Player player;
 	private Scanner input = new Scanner(System.in);;
 	private Game game;
+	private ArrayList<Integer> array;
 
 	public GameIO() {
 		game = new Game(boardSize());
+
 	}
 
 	public int boardSize() {
 		System.out.println("Enter Board Size");
 		return this.size = input.nextInt();
+
 	}
 
 	public void getUserName() {
@@ -33,7 +34,9 @@ public class GameIO implements IGameioable {
 		System.out.print("Player 2, what is your name? \n");
 		String p2 = input.next();
 		player = new Player(p1, p2);
+
 		player.setPlayer1(true);
+		player.setPlayer2(false);
 
 	}
 
@@ -42,11 +45,10 @@ public class GameIO implements IGameioable {
 		this.getUserName();
 
 		while (true) {
+
 			this.drawBoard(game.getBoard().getCells());
-//			int j = game.takeInput();
-//			if (j == 1 || j == 2) {
-				this.whoseTurn(game.takeInput());
-//			}
+
+			this.whoseTurn(game.takeInput());
 			while (true) {
 				int i = game.putMark(this.userPosition());
 				if (i == 1 || i == 2) {
@@ -55,10 +57,13 @@ public class GameIO implements IGameioable {
 					break;
 				}
 			}
+			game.setMark();
 			int i = game.resultAnalysis();
 			if (i == 1 || i == 2 || i == 3) {
 				this.printResult(i);
 				break;
+			} else {
+				System.out.println("No result");
 			}
 		}
 		this.drawBoard(game.getBoard().getCells());
@@ -66,23 +71,21 @@ public class GameIO implements IGameioable {
 	}
 
 	public void boardValidator(int i) {
-		switch (i) {
-		case 1:
+		if (i == 1)
 			System.out.println("This position is off the bounds of the board! Try again.");
-		case 2:
+		else if (i == 2)
 			System.out.println("Someone has already made a move at this position! Try again.");
-		case 0:
+		else if (i == 0)
 			System.err.println("System Error");
-		}
 	}
 
 	public ArrayList<Integer> userPosition() {
-
+		array = new ArrayList<Integer>();
 		System.out.print("Enter a row number (0, 1, or 2): ");
 		int row = input.nextInt();
 		System.out.print("Enter a column number (0, 1, or 2): ");
 		int col = input.nextInt();
-		ArrayList<Integer> array = new ArrayList<Integer>();
+
 		array.add(row);
 		array.add(col);
 		return array;
@@ -90,25 +93,25 @@ public class GameIO implements IGameioable {
 	}
 
 	public void printResult(int i) {
-		switch (i) {
-		case 1:
+		if (i == 1)
 			System.out.println(player.getP1() + " has " + ResultEnum.Won);
-		case 2:
+		else if (i == 2)
 			System.out.println(player.getP2() + " has " + ResultEnum.Won);
-		case 3:
+		else if (i == 3)
 			System.out.println("It's a " + ResultEnum.Tie);
-		default:
+		else {
 			System.err.print("System Error");
 		}
 
 	}
 
 	public void whoseTurn(int i) {
-		switch (i) {
-		case 1:
+		if (i == 1)
 			System.out.println(player.getP1() + "'s Turn (" + Mark.X + "):");
-		case 2:
+		else if (i == 2) {
 			System.out.println(player.getP2() + "'s Turn (" + Mark.O + "):");
+		} else {
+
 		}
 	}
 
