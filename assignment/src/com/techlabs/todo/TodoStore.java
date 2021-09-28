@@ -9,42 +9,42 @@ import java.util.ArrayList;
 
 public class TodoStore {
 	private ArrayList<Todo> todoList;
-	public void addToLocalStorage(ArrayList<Todo> array2) {
+	public void addToLocalStorage(ArrayList<Todo> array) {
 		 try
 	        {
-	            FileOutputStream fos = new FileOutputStream("Data\\listData");
-	            ObjectOutputStream oos = new ObjectOutputStream(fos);
-	            oos.writeObject(array2);
-	            oos.close();
-	            fos.close();
+	            FileOutputStream fileOutputStream = new FileOutputStream("Data\\listData");
+	            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+	            objectOutputStream.writeObject(array);
+	            objectOutputStream.close();
+	            fileOutputStream.close();
 	        } 
-	        catch (IOException ioe) 
+	        catch (IOException ex) 
 	        {
-	            ioe.printStackTrace();
+	            ex.printStackTrace();
 	        }
 		
 	}
 	public ArrayList<Todo> getFromLocalStorage() {
 		 try
 	        {
-	            FileInputStream fis = new FileInputStream("Data\\listData");
-	            ObjectInputStream ois = new ObjectInputStream(fis);
+	            FileInputStream fileInputStream = new FileInputStream("Data\\listData");
+	            ObjectInputStream objectOutPutStream = new ObjectInputStream(fileInputStream);
 	 
-	            todoList = (ArrayList<Todo>) ois.readObject();
+	            todoList = (ArrayList<Todo>) objectOutPutStream.readObject();
 	            
-	            ois.close();
-	            fis.close();
+	            objectOutPutStream.close();
+	            fileInputStream.close();
 	            return todoList;
 	        } 
-	        catch (IOException ioe) 
+	        catch (IOException ex) 
 	        {
-	            ioe.printStackTrace();
+	            ex.printStackTrace();
 	            return null;
 	        } 
-	        catch (ClassNotFoundException c) 
+	        catch (ClassNotFoundException cex) 
 	        {
 	            System.out.println("Class not found");
-	            c.printStackTrace();
+	            cex.printStackTrace();
 	            return null;
 	        }
 	}

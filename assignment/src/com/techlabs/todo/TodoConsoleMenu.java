@@ -25,7 +25,9 @@ public class TodoConsoleMenu {
 			i = input.nextInt();
 			System.out.println("Enter a Todo");
 			String p1 = input.next().trim();
+			System.out.print(todo.getText());
 			todo = new Todo(p1,formatter.format(date),false);
+			System.out.printf(todo.getId(),todo.getText(),todo.isCompleted());
 			array.add(todo);
 			store.addToLocalStorage(array);
 			this.showTodo();

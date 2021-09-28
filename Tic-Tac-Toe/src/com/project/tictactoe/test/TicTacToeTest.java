@@ -1,6 +1,6 @@
 package com.project.tictactoe.test;
 
-import com.project.tictactoe.game.GameIO;
+import com.project.tictactoe.game.io.GameIO;
 
 public class TicTacToeTest {
 

@@ -94,7 +94,6 @@ public class Game {
 	}
 
 	public void setMark() {
-		// TODO Auto-generated method stub
 		this.getBoard().getCells()[row][col].setMark(c);
 
 	}

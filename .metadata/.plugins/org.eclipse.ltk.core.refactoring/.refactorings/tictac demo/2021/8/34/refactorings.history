@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;ResultEnum.java&apos; to &apos;Tic-Tac-Toe/src/com.project.tictactoe.mark&apos;&#x0D;&#x0A;- Original project: &apos;tictac demo&apos;&#x0D;&#x0A;- Destination element: &apos;Tic-Tac-Toe/src/com.project.tictactoe.mark&apos;&#x0D;&#x0A;- Original element: &apos;com.techlab.tictactoe.ResultEnum.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="=Tic-Tac-Toe/src&lt;com.project.tictactoe.mark" element1="/src&lt;com.techlab.tictactoe{ResultEnum.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1629387989102" units="1" version="1.0"/>
+</session>

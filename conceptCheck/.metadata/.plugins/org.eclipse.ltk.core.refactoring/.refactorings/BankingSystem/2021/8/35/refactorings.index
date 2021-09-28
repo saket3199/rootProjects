@@ -1,0 +1,8 @@
+1629964739056	Rename method 'showMenu'
+1629965326967	Encapsulate field 'isLoggedIn'
+1629967098527	Delete element
+1629976111261	Rename local variable 'updatedBalance'
+1629981219840	Rename type 'UserInput'
+1629983185600	Rename method 'withdrw'
+1629995361653	Encapsulate field 'banker'
+1630045506016	Rename type 'NewPage'

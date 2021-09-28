@@ -1,0 +1,17 @@
+1628673795599	Encapsulate field 'id'
+1628673803195	Encapsulate field 'text'
+1628682627713	Rename type 'todo'
+1628682807224	Rename type 'todoable'
+1628682823566	Rename type 'todoIO'
+1628682984813	Encapsulate field 'id'
+1628682992380	Encapsulate field 'isCompleted'
+1628683242613	Rename type 'todoTest'
+1628687900203	Rename method 'todoMenuLaunch'
+1628688228015	Rename type 'TodoMenu'
+1628690333606	Delete element
+1628690360906	Delete element
+1628690543854	Rename field 'Todo'
+1628692324048	Rename local variable 'fos'
+1628692380149	Rename local variable 'fis'
+1628692411788	Rename local variable 'oos'
+1628692465051	Rename local variable 'array2'
